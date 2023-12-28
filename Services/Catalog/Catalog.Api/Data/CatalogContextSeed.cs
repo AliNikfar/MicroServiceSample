@@ -5,10 +5,10 @@ namespace Catalog.Api.Data
 {
     public class CatalogContextSeed
     {
-        public static void SeedData(IMongoCollection<Product> productCollection )
+        public static void SeedData(IMongoCollection<Product> productCollection)
         {
             bool existProduct = productCollection.Find(p => true).Any();
-            if( !existProduct )
+            if (!existProduct)
             {
                 productCollection.InsertManyAsync(GetSeedData());
             }
@@ -20,7 +20,7 @@ namespace Catalog.Api.Data
             {
             new Product()
             {
-                Id= "faa7b621-cfb5-45a0-9bd4-dc09c4a51ccc",
+                Id= "faa7b621cfb545a09bd4dc09",
                 Category = "Computer",
                 Description = "this is first one",
                 ImageFile = "Prod1.png",
@@ -30,7 +30,7 @@ namespace Catalog.Api.Data
             },
                         new Product()
             {
-                Id= "8fe7e25a-d5d1-4065-a636-5ac95abf87a1",
+                Id= "8fe7e25ad5d14065a6365ac9",
                 Category = "Computer2",
                 Description = "this is first two",
                 ImageFile = "Prod2.png",
@@ -41,7 +41,7 @@ namespace Catalog.Api.Data
 
                         new Product()
             {
-                Id= "660b014a-1b19-4e7e-816d-fc91e35c04d3",
+                Id= "660b014a1b194e7e816dfc91",
                 Category = "Computer3",
                 Description = "this is third one",
                 ImageFile = "Prod3.png",
@@ -51,7 +51,7 @@ namespace Catalog.Api.Data
             },
               new Product()
             {
-                Id= "a2d6548b-b575-47c0-9530-0e513d0b4629",
+                Id= "a2d6548bb57547c095300e51",
                 Category = "Computer4",
                 Description = "this is forth one",
                 ImageFile = "Prod4.png",
@@ -61,7 +61,7 @@ namespace Catalog.Api.Data
             },
               new Product()
             {
-                Id= "e644a53b-1d01-4a85-8d6b-1262003e657a",
+                Id= "e644a53b1d014a858d6b1262",
                 Category = "Computer5",
                 Description = "this is fifth one",
                 ImageFile = "Prod5.png",

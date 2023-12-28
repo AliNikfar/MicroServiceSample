@@ -18,7 +18,7 @@ namespace Catalog.Api.Repositories
         {
             return await _catalogContext.Products.Find(p=>true).ToListAsync();
         }
-        public async Task<Product> GetProduct(string id)
+        public async Task<Product> GetProductById(string id)
         {
             return await _catalogContext.Products.Find(p => p.Id == id).FirstOrDefaultAsync();
         }
