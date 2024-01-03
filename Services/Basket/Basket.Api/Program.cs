@@ -6,6 +6,10 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddStackExchangeRedisCache(option=>
+{
+    option.Configuration = builder.Configuration.GetValue<string>("CachSettings:ConnectionString");
+});
 
 var app = builder.Build();
 
