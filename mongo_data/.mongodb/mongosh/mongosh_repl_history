@@ -1,0 +1,74 @@
+show collections
+use local
+show collections
+use CatalogDb
+show dbs
+show collections
+db.createCollection('testt')
+db.createCollection(testt)
+use local
+show dbs
+show collections
+use CatalogDb
+show dbs
+show collections
+use local
+show dbs
+use local
+show dbs
+db.dropDatabase()
+use cataloDb
+show dbs
+db.dropDatabase()
+use cataloDb
+db.dropDatabase()
+db.DropDatabase()
+use CatalogDb
+db.dropDatabase(CatalogDb)
+dropDatabase(CatalogDb)
+database.remove(CatalogDb)
+db.database.remove(CatalogDb)
+show dbs
+db.database.remove(catalogDb)
+db.database.remove(CatalogDb)
+db.collection.remove(CatalogDb)
+db.collection.remove(CataloDb)
+db.collection.remove()
+db.CatalogDb.remove()
+help
+db.CatalogDb.remove()
+show dbs
+db.cataloDb.drop() 
+show dbs
+db.CataloDb.drop() 
+db.CatalogDb.drop() 
+db.mongoDb.drop() 
+show dbs
+use test
+db.collection.drop(cataloDb)
+db.collection.drop(catalogDb)
+show collections
+use catalogDb
+help
+db.Products.find()
+db.Products.Find()
+db.collection('Products').find()
+use cataloDb
+show collections
+db.createCollection('Products')
+db.createCollection(Products)
+add collection  Products
+create collection  Products
+create container Products
+db.products.find()
+db.find()
+db.collectionName.find()
+db.catalogdb.find()
+show collections
+use cataloDb
+show collections
+show dbs
+help
+show dbs
+cd..
+db.directionlist
