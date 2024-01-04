@@ -15,8 +15,9 @@
             get
             {
                 // Rsult of Both must be Equal ; shold to test 
+                if(Items is not null && Items.Any())
                 return Items.Sum(p=>p.Price*p.Quantity);
-
+                return 0;
                 //decimal totalPrice = 0;
                 //foreach(ShoppingCartItem item in Items)
                 //{
