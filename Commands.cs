@@ -10,7 +10,7 @@ public class Class1
 		//3- run the following command to run updated Compose file to project
 		// docker-compose -f .\docker-compose.yml -f docker-compose.override.yml up -d
 
-		//to undo current done docker-compose to project use down intead of up in the command
+		//to Remove current done docker-compose to project use down intead of up in the command
 
 
 
