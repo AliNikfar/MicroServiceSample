@@ -16,6 +16,7 @@ services:
      - "6379:6379"
      #"mySetPort:DefaultContainersPort"
 
+
   portainer: 
     container_name: portainer
     restart: always
@@ -27,6 +28,17 @@ services:
      - /mnt/Docker-Data/portainer:/data
      - /etc/localtime:/etc/localtime:ro
 
+  discountdb:
+    container_name: discountdb
+    environment: 
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=admin1234
+      - POSTGRES_DB=DiscountDb
+    restart: always
+    ports:
+     - "5432:5432"
+    volumes: 
+     - postgres_data:/var/lib/postgresql/data/
    
 
   catalog.api:
