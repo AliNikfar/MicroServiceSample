@@ -1,4 +1,6 @@
+using Discount.Api.Extentions;
 using Discount.Api.Repositories;
+//Created Main By my own
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,7 +13,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IDiscountRepository, DiscountRepository>();
 
 var app = builder.Build();
-
+app.Services.MigrateDatabase();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
@@ -24,3 +26,4 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
+
