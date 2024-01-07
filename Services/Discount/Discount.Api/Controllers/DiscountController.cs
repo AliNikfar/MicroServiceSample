@@ -20,7 +20,7 @@ namespace Discount.Api.Controllers
         [ProducesResponseType(typeof(Coupone),(int)HttpStatusCode.OK)]
         public async Task<ActionResult<Coupone>> GetDiscount(string productName)
         {
-            var coupon = _discountRepository.GetDiscount(productName);
+            var coupon =await  _discountRepository.GetDiscount(productName);
             return Ok(coupon);
         }
 
@@ -28,7 +28,7 @@ namespace Discount.Api.Controllers
         [ProducesResponseType(typeof(Coupone), (int)HttpStatusCode.OK)]
         public async Task<ActionResult<Coupone>> CreateDiscount([FromBody]Coupone coupone)
         {
-            var result = _discountRepository.CreateDiscount(coupone);
+            var result = await _discountRepository.CreateDiscount(coupone);
             return CreatedAtRoute("GetDiscount", new { ProductName = coupone.ProductName }, coupone);
         }
 
