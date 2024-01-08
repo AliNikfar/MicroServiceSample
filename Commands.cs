@@ -13,6 +13,8 @@ public class Class1
 		//to Remove current done docker-compose to project use down intead of up in the command
 
 
-
+		//after add ***.Proto file
+		//after declare all config and declare class shuold goto this file "Properties" and under "Build Action" select "Protobuf Compiler"
+		//then under grpc sturb class select server or client or bilateral
 	}
 }
