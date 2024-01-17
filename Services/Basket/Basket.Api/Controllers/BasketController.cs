@@ -25,17 +25,18 @@ namespace Basket.Api.Controllers
         public async Task<ActionResult<ShoppingCart>> GetBasket(string userName)
         {
             var basket = await _basketRepositor.GetUserBasket(userName);
-            foreach(ShoppingCartItem crnt in basket.Items )
-            {
-                var coupone = await _discountService.GetDiscount(crnt.ProductName);
-                crnt.Price -= coupone.Amount;
-            }
             return Ok(basket ?? new ShoppingCart(userName));
         }
         [HttpPost]
         [ProducesResponseType(typeof(ShoppingCart), (int)HttpStatusCode.OK)]
         public async Task<ActionResult<ShoppingCart>> UpdateBasket([FromBody] ShoppingCart basket)
         {
+            foreach (ShoppingCartItem crnt in basket.Items)
+            {
+                var coupone = await _discountService.GetDiscount(crnt.ProductName);
+                crnt.Price -= coupone.Amount;
+            }
+
             return Ok(await _basketRepositor.UpdateBasket(basket));
         }
         [HttpDelete("{UserName}",Name = "DeleteBasket")]
