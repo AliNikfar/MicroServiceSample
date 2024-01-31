@@ -36,7 +36,7 @@ namespace Discount.Grpc.Extentions
                                             )";
                     command.ExecuteNonQuery();
 
-                    command.CommandText = @" Insert into Coupone(productName,Description,Amount) values ('IPhone x','',150000) ,('samsung G1','bhfgfgjb dfgdf g',1800000) ";
+                    command.CommandText = @" Insert into Coupone(productName,Description,Amount) values ('First Laptop','',15000) ,('second Laptop','bhfgfgjb dfgdf g',18000) ";
                     command.ExecuteNonQuery();
                     logger.CreateLogger("Migration Has Been Completed!!!");
                 }
