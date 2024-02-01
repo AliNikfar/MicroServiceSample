@@ -1,4 +1,11 @@
 show collections
+ use catalogDb
+catalogDb
+show databases
+help
+show dblist
+dblist show
+show collections
 use local
 show collections
 use CatalogDb
