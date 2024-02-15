@@ -3,6 +3,7 @@ using MediatR;
 using Microsoft.Extensions.Logging;
 using Ordering.Application.Contracts.Infrastructure;
 using Ordering.Application.Contracts.Persistance;
+using Ordering.Domain.Entities;
 
 namespace Ordering.Application.Features.Orders.Commands.CheckoutOrder
 {
@@ -21,7 +22,20 @@ namespace Ordering.Application.Features.Orders.Commands.CheckoutOrder
             _logger = logger;
         }
 
-        public Task<int> Handle(CheckoutOrderCommand request, CancellationToken cancellationToken)
+        public async Task<int> Handle(CheckoutOrderCommand request, CancellationToken cancellationToken)
+        {
+            var orderEntity = _mapper.Map<Order>(request);
+            var NewOrder = await _orderRepository.AddAsync(orderEntity);
+
+            _logger.LogInformation($"order with id {NewOrder.Id} has Created");
+            
+            await SendMail(NewOrder);
+
+            return NewOrder.Id;
+
+        }
+
+        private async Task SendMail(Order newOrder)
         {
             throw new NotImplementedException();
         }
