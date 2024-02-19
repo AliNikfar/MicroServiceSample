@@ -1,7 +1,6 @@
 ﻿namespace Ordering.Infrastructure
 {
-    public class Class1
+    internal interface IAsyncRepository<T1, T2>
     {
-
     }
 }

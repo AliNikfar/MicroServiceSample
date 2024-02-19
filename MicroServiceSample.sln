@@ -26,13 +26,18 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Discount.Grpc", "Services\D
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Ordering", "Ordering", "{39D8E5E6-D828-4AC3-91E4-9A10A4ABCF98}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ordering.Api", "Services\Ordering\Ordering.Api\Ordering.Api.csproj", "{22A6EC72-C533-4F97-AEE0-25A1C0F7848A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ordering.Api", "Services\Ordering\Ordering.Api\Ordering.Api.csproj", "{22A6EC72-C533-4F97-AEE0-25A1C0F7848A}"
+	ProjectSection(ProjectDependencies) = postProject
+		{864D4A7C-43DD-4C6E-90C9-092FE3849169} = {864D4A7C-43DD-4C6E-90C9-092FE3849169}
+		{0EFA5ECE-C0E8-4914-9F25-E2804D17D946} = {0EFA5ECE-C0E8-4914-9F25-E2804D17D946}
+		{0813C5E4-8EBA-44B1-9A71-69F2CAB29911} = {0813C5E4-8EBA-44B1-9A71-69F2CAB29911}
+	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ordering.Domain", "Services\Ordering\Ordering.Domain\Ordering.Domain.csproj", "{0EFA5ECE-C0E8-4914-9F25-E2804D17D946}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ordering.Domain", "Services\Ordering\Ordering.Domain\Ordering.Domain.csproj", "{0EFA5ECE-C0E8-4914-9F25-E2804D17D946}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ordering.Application", "Services\Ordering\Ordering.Application\Ordering.Application.csproj", "{0813C5E4-8EBA-44B1-9A71-69F2CAB29911}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ordering.Application", "Services\Ordering\Ordering.Application\Ordering.Application.csproj", "{0813C5E4-8EBA-44B1-9A71-69F2CAB29911}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ordering.Infrastructure", "Services\Ordering\Ordering.Infrastructure\Ordering.Infrastructure.csproj", "{864D4A7C-43DD-4C6E-90C9-092FE3849169}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ordering.Infrastructure", "Services\Ordering\Ordering.Infrastructure\Ordering.Infrastructure.csproj", "{864D4A7C-43DD-4C6E-90C9-092FE3849169}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
