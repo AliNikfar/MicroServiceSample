@@ -16,5 +16,7 @@ public class Class1
 		//after add ***.Proto file
 		//after declare all config and declare class shuold goto this file "Properties" and under "Build Action" select "Protobuf Compiler"
 		//then under grpc sturb class select server or client or bilateral
+
+		//if can not find  microsoft mssql server on hub.docker try  this : docker pull mcr.microsoft.com/mssql/server
 	}
 }
