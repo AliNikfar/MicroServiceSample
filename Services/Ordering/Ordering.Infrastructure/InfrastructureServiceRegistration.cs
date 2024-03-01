@@ -20,10 +20,7 @@ namespace Ordering.Infrastructure
         public static IServiceCollection AddInfrastructureServicees(this IServiceCollection services , IConfiguration configuration)
         {
             //Add Configurations if Needs
-            services.AddDbContext<OrderContext>( options=>
-            {
-                options.UseSqlServer(configuration.GetConnectionString("OrderingConnectionString"));
-            });
+            services.AddDbContext<OrderContext>();
             services.AddScoped ( typeof(IAsyncRepository<>),typeof(RepositoryBase<>));
             services.AddScoped<IOrderRepository, OrderRepository>();
             services.AddScoped<IEmailService, EmailService>(); 

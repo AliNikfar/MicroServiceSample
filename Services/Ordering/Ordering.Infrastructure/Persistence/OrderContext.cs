@@ -12,10 +12,9 @@ namespace Ordering.Infrastructure.Persistence
     public class OrderContext : DbContext
     {
 
-
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("OrderingConnectionString");
+            optionsBuilder.UseSqlServer("Server=localhost;Database=OrderDb;User Id=sa;Password=SwN12345678");
             base.OnConfiguring(optionsBuilder);
         }
         public DbSet<Order> Orders { get; set; }
@@ -28,12 +27,16 @@ namespace Ordering.Infrastructure.Persistence
                     case EntityState.Added:
                         {
                             entry.Entity.CreateDate = DateTime.Now;
+                            entry.Entity.ModifiedDate = DateTime.Now;
+                            entry.Entity.LastModifiedBy = "Ali Nikfar";
                             entry.Entity.CreateBy = "Ali Nikfar";
                             break;
                         }
                     case EntityState.Modified:
                         {
                             entry.Entity.CreateDate = DateTime.Now;
+                            entry.Entity.ModifiedDate = DateTime.Now;
+                            entry.Entity.LastModifiedBy = "Ali Nikfar";
                             entry.Entity.CreateBy = "Ali Nikfar";
                             break;
                         }

@@ -18,6 +18,9 @@ services:
   pgadmin:
     image: dpage/pgadmin4
 
+  orderdb:
+    image: mcr.microsoft.com/mssql/server:2017-latest
+
 
   catalog.api:
     image: ${DOCKER_REGISTRY-}catalogapi

@@ -25,12 +25,16 @@ namespace Ordering.Infrastructure.Persistence
         {
             return new List<Order>
             {
-                new Order{ Id = 1,
+                new Order{
                     FirstName="ali",
                     LastName = "Nikfar" ,
+                    UserName = "aliNikfar" ,
+                    PaymentMethod = 1,
                     EmailAddress="ali.nikfar2000@gmail.com" ,
                     City="tehran" ,
+                    BankName = "saderat",
                     Country = "Iran",
+                    ZipCode = "1234567890",
                     TotalPrice = 10000}
             };
         }
