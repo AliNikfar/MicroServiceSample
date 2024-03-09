@@ -22,6 +22,16 @@ builder.Services.AddStackExchangeRedisCache(option=>
     option.Configuration = builder.Configuration.GetValue<string>("CachSettings:ConnectionString");
 });
 builder.Services.AddScoped<DiscountGrpcService>();
+builder.Services.AddMassTransit(config =>
+{
+    config.UsingRabbitMq((ctx, conf) =>
+    {
+        conf.Host(configuration.GetValue<string>("EventBusSettings:HostAddress")
+        // the ip address is 15672 but according to rabbitmq config we should remove the first character "1" 
+        // set connection string for RabbitMQ
+    });
+});
+builder.Services.AddMassTransitHostedService(); // using on MassTransit version 7.1.6 to 7.1.6
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
