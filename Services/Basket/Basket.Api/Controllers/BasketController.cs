@@ -17,6 +17,7 @@ namespace Basket.Api.Controllers
         private readonly IBasketRepository _basketRepositor;
         private readonly DiscountGrpcService _discountService;
         private readonly IMapper _mapper;
+        // inject from MassTransit for using rabbitMQ
         private readonly IPublishEndpoint _publishEndpoint;
 
         public BasketController(IBasketRepository basketRepositor,DiscountGrpcService discountService , IMapper mapper, IPublishEndpoint publishEndpoint)

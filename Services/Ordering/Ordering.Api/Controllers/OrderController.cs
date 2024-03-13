@@ -36,7 +36,8 @@ namespace Ordering.Api.Controllers
         [ProducesResponseType((int)HttpStatusCode.OK)]
         public async Task<ActionResult<int>> CheckOutOrder([FromBody] CheckoutOrderCommand command)
         {
-            return await _mediator.Send(command);
+            return Ok(await _mediator.Send(command)); 
+
         }
         #endregion
 

@@ -32,8 +32,9 @@ builder.Services.AddMassTransit(config =>
         // set connection string for RabbitMQ
     });
 });
-builder.Services.AddAutoMapper(typeof(Program).Assembly);
 builder.Services.AddMassTransitHostedService(); // using on MassTransit version 7.1.6 to 7.1.6
+builder.Services.AddAutoMapper(typeof(Program).Assembly);
+
 
 var app = builder.Build();
 
