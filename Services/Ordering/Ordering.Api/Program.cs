@@ -16,6 +16,8 @@ builder.Services.AddControllers();
 builder.Services.AddApplicationServices();
 builder.Services.AddInfrastructureServicees(builder.Configuration);
 builder.Services.AddSwaggerGen();
+builder.Services.AddAutoMapper(typeof(Program).Assembly);
+builder.Services.AddScoped<BasketCheckoutConsumer>();
 
 var serviceProvider = builder.Services.BuildServiceProvider();
 var logger = serviceProvider.GetService<ILogger<OrderContext>>();
