@@ -10,13 +10,19 @@ IConfiguration config = builder.Configuration;
 ConfigurationManager configuration = builder.Configuration;
 IHostBuilder hostBuilder = Host.CreateDefaultBuilder(args);
 
-hostBuilder.ConfigureLogging((loggingbuilder) =>
+hostBuilder.ConfigureLogging((hostingContext,loggingbuilder) =>
 {
-    loggingbuilder.AddConfiguration(config.GetSection("Logging"));
+    loggingbuilder.AddConfiguration(hostingContext.Configuration.GetSection("Logging"));
     loggingbuilder.AddConsole();
     loggingbuilder.AddDebug();
 
 });
+hostBuilder.ConfigureAppConfiguration((hostingContext,config) =>
+{
+    config.AddJsonFile($"ocelot.{hostingContext.HostingEnvironment.EnvironmentName}.json",true,true);
+});
+
+
 
 configuration.AddConfiguration(config.GetSection("Logging"));
 
