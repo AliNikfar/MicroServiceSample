@@ -1,6 +1,7 @@
 using Microsoft.Extensions.Hosting;
 using Ocelot.DependencyInjection;
 using Ocelot.Middleware;
+using Ocelot.Cache.CacheManager;
 
 var builder = WebApplication.CreateBuilder(args);
 IConfiguration configuration = builder.Configuration;
@@ -17,7 +18,8 @@ new WebHostBuilder()
         .AddEnvironmentVariables();
 })
 .ConfigureServices(s => {
-    s.AddOcelot();
+    s.AddOcelot()
+    .AddCacheManager(x => x.WithDictionaryHandle()); ;
 })
 .ConfigureLogging((hostingContext, logging) =>
 {
