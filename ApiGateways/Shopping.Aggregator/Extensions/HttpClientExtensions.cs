@@ -6,7 +6,7 @@ namespace Shopping.Aggregator.Extensions
     {
         public static async Task<T> ReadContentAs<T> (this HttpResponseMessage response)
         {
-            if(response.IsSuccessStatusCode)
+            if(!response.IsSuccessStatusCode)
 
                 throw new ApplicationException($"something went wrong when calling the api : {response.ReasonPhrase}");
 

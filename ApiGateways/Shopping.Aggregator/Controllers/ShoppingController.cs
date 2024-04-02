@@ -24,26 +24,32 @@ namespace Shopping.Aggregator.Controllers
         public async Task<ActionResult<ShoppingModel>> GetShopping(string userName)
         {
              var basket = await _basketService.GetBasket(userName);
-            foreach(var item in basket.Items)
+            if (basket is not null)
             {
-                var product = await _catalogService.GetCatalog(item.ProductId);
-                item.ProductName = product.Name;
-                item.Category = product.Category;
-                item.Description = product.Description;
-                item.Summry = product.Summry;
-                item.ImageFile = product.ImageFile;
+                foreach (var item in basket.Items)
+                {
+                    var product = await _catalogService.GetCatalog(item.ProductId);
+                    item.ProductName = product.Name;
+                    item.Category = product.Category;
+                    item.Description = product.Description;
+                    item.Summry = product.Summry;
+                    item.ImageFile = product.ImageFile;
 
+                }
+
+                var orders = await _orderService.GetOrderByUserName(userName);
+                var shoppingModel = new ShoppingModel
+                {
+                    UserName = userName,
+                    BasketWithProduct = basket,
+                    Orders = orders
+                };
+
+
+                return Ok(shoppingModel);
             }
-
-            var orders = await _orderService.GetOrderByUserName(userName);
-            var shoppingModel = new ShoppingModel
-            {
-                UserName = userName,
-                BasketWithProduct = basket,
-                Orders = orders
-            };
-
-            return Ok(shoppingModel);
+            else
+                return NotFound();
         }
     }
 }
