@@ -12,10 +12,8 @@ namespace Ordering.Infrastructure.Persistence
     public class OrderContext : DbContext
     {
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        public OrderContext(DbContextOptions<OrderContext> options) : base(options)
         {
-            optionsBuilder.UseSqlServer("Server=localhost;Database=OrderDb;User Id=sa;Password=SwN12345678");
-            base.OnConfiguring(optionsBuilder);
         }
         public DbSet<Order> Orders { get; set; }
         public override Task<int> SaveChangesAsync(bool acceptAllChangesOnSuccess, CancellationToken cancellationToken = default)

@@ -120,7 +120,7 @@ services:
     container_name: ordering.api
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
-      - "ConnectionStrings:OrderingConnectionString=Server=OrderDb;Database=OrderDb;User Id=sa;Password=SwN12345678"
+      - "ConnectionStrings:OrderingConnectionString=Server=orderdb;Database=OrderDb;User Id=sa;Password=SwN12345678;"
       - "EventBusSettings:HostAddress=amqp://guest:guest@rabbitmq:5672"
     depends_on:
       - orderdb
@@ -137,7 +137,18 @@ services:
       - catalog.api
       - basket.api
       - discount.api
-     #- ordering.api
+      - ordering.api
     ports:
       - "8010:80"
+
+
+  shopping.aggregator:
+    container_name: shopping.aggregator
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - "ApiSettings:CatalogUrl=http://catalog.api"
+      - "ApiSettings:BasketUrl=http://basket.api"
+      - "ApiSettings:OrderingUrl=http://ordering.api"
+    ports:
+      - "8005:80"
 
