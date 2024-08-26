@@ -51,7 +51,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-
+app.UseExceptionHandler("/errors");
 app.UseAuthorization();
 
 app.MapControllers();
